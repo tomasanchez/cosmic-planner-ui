@@ -5,23 +5,18 @@
 import {Typography} from "@mui/material";
 import {deepPurple} from "@mui/material/colors";
 import {Helmet} from "react-helmet";
+import {NavBar} from "../components/header/NavBar";
 
 export const LandingPage = () => {
     return (
         <>
             <Helmet title={"Order your meetings | Cosmic Planner"}/>
             <header>
-                <nav>
-                    <div>
-                        <Typography variant="h1" gutterBottom className="text-sm-center text-lg-start">
-                            Cosmic Planner
-                        </Typography>
-                    </div>
-                </nav>
+                <NavBar/>
             </header>
             <main>
                 <section className="user-select-none">
-                    <Typography variant="h1" gutterBottom className="text-sm-center text-lg-start">
+                    <Typography variant="h2" gutterBottom className="text-sm-center text-lg-start">
                         Easy <b style={{color: deepPurple.A400}}
                                 className="d-sm-inline d-lg-block">cosmic</b> scheduling
                     </Typography>
