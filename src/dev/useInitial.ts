@@ -3,7 +3,7 @@ import {InitialHookStatus} from "@react-buddy/ide-toolbox";
 
 
 export const useInitial: () => InitialHookStatus = () => {
-    /* eslint-disable @typescript-eslint/no-unused-vars */
+     
     const [status, setStatus] = useState<InitialHookStatus>({
         loading: true,
         error: false,
