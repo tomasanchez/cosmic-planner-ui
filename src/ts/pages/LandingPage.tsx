@@ -2,7 +2,6 @@
  * @author Tomas Sanchez
  */
 
-import React from 'react';
 import {Typography} from "@mui/material";
 import {deepPurple} from "@mui/material/colors";
 import {Helmet} from "react-helmet";
