@@ -6,12 +6,18 @@ import './index.css'
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from "./ts/themes";
+import {DevSupport} from "@react-buddy/ide-toolbox";
+import {ComponentPreviews, useInitial} from "./dev";
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <App/>
+            <DevSupport ComponentPreviews={ComponentPreviews}
+                        useInitialHook={useInitial}
+            >
+                <App/>
+            </DevSupport>
         </ThemeProvider>
     </React.StrictMode>,
 )
