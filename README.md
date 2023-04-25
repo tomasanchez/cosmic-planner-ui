@@ -1,6 +1,9 @@
 # Cosmic Planner
 
-Order your shcedules with `Cosmic Planner`. Because _"Cosmos"_ is the opposite of _"Chaos"_.
+[![Build](https://github.com/tomasanchez/cosmic-planner-ui/actions/workflows/build.yml/badge.svg?event=push)](https://github.com/tomasanchez/cosmic-planner-ui/actions/workflows/build.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0e7f9400-afec-459d-9266-140da09eb052/deploy-status)](https://app.netlify.com/sites/cosmic-planner/deploys)
+
+Order your schedules with `Cosmic Planner`. Because _"Cosmos"_ is the opposite of _"Chaos"_.
 
 ## Development Environment
 
