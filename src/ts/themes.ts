@@ -8,8 +8,13 @@ import f72CondensedBold from "../fonts/72-CondensedBold.ttf";
 import f72Italic from "../fonts/72-Italic.ttf";
 import f72Light from "../fonts/72-Light.ttf";
 import f72Regular from "../fonts/72-Regular.ttf";
+import {createTheme} from "@mui/material";
 
-
+/**
+ * Font Family: 72.
+ *
+ * @see https://experience.sap.com/72/
+ */
 const styleOverrides =
     `
                 @font-face {
@@ -77,7 +82,7 @@ const fontFamily = [
     '"Segoe UI Symbol"',
 ].join(',');
 
-export const themeOptions: ThemeOptions = {
+const themeOptions: ThemeOptions = {
 
     palette: {
         mode: 'light',
@@ -130,7 +135,15 @@ export const themeOptions: ThemeOptions = {
 
         h5: {
             fontFamily: '"72 Light"',
+        },
+
+        h6: {
+            fontFamily: '"72 Light"',
         }
     },
 
 };
+
+const theme = createTheme(themeOptions);
+
+export default theme;
