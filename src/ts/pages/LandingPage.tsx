@@ -8,6 +8,7 @@ import {Helmet} from "react-helmet";
 import {NavBar} from "../components/header/NavBar";
 import landingSVG from "../../assets/landing-demo.svg";
 import salesSVG from "../../assets/sales-promo.svg";
+import marketingSVG from "../../assets/marketing-promo.svg";
 import TextBold from "../components/text/TextBold.tsx";
 import React, {useState} from "react";
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
@@ -16,6 +17,9 @@ import SchoolIcon from '@mui/icons-material/School';
 import BoltIcon from '@mui/icons-material/Bolt';
 import InsightsIcon from '@mui/icons-material/Insights';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import ScheduleSendIcon from '@mui/icons-material/ScheduleSend';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import SideImageContainer from "../components/layout/SideImageContainer.tsx";
 import IconItem from "../components/layout/IconItem.tsx";
 
@@ -94,7 +98,7 @@ export const LandingPage = () => {
                         <div className={"col text-center"}>
                             <Typography variant="h3" gutterBottom sx={{fontSize: "2rem"}}>
                                 Simplified more than <TextBold>{schedulesNumber}</TextBold> schedules for more
-                                than <TextBold>{usersNumber}</TextBold> worldwide.
+                                than <TextBold>{usersNumber}</TextBold> users worldwide.
                             </Typography>
                         </div>
                     </div>
@@ -130,10 +134,40 @@ export const LandingPage = () => {
                         </SideImageContainer>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        Item Two
+                        <SideImageContainer image={marketingSVG} alt={"Marketing Promo"}>
+                            <div className="py-5 mt-5 mx-5">
+                                <IconItem title={"Optimize campaigns"} icon={<QueryStatsIcon/>}
+                                          description={
+                                              "Analyze which campaigns are driving the most meeting requests or" +
+                                              " which channels are most effective for scheduling meetings"}/>
+                                <IconItem title={"Improve lead generation"} icon={<ScheduleSendIcon/>}
+                                          description={
+                                              "Growth and success with a streamlined scheduling process" +
+                                              " scheduling meetings"}/>
+                                <IconItem title={"Boost conversion rates"} icon={<TrendingUpIcon/>}
+                                          description={
+                                              "Focus on building relationships with potential customers instead" +
+                                              " of dealing with scheduling logistics"}/>
+                            </div>
+                        </SideImageContainer>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                        Item Three
+                        <SideImageContainer image={marketingSVG} alt={"Marketing Promo"}>
+                            <div className="py-5 mt-5 mx-5">
+                                <IconItem title={"Optimize campaigns"} icon={<QueryStatsIcon/>}
+                                          description={
+                                              "Analyze which campaigns are driving the most meeting requests or" +
+                                              " which channels are most effective for scheduling meetings"}/>
+                                <IconItem title={"Improve lead generation"} icon={<ScheduleSendIcon/>}
+                                          description={
+                                              "Growth and success with a streamlined scheduling process" +
+                                              " scheduling meetings"}/>
+                                <IconItem title={"Boost conversion rates"} icon={<TrendingUpIcon/>}
+                                          description={
+                                              "Focus on building relationships with potential customers instead" +
+                                              " of dealing with scheduling logistics"}/>
+                            </div>
+                        </SideImageContainer>
                     </TabPanel>
                 </section>
             </main>
