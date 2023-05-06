@@ -19,7 +19,8 @@ const SideImageContainer = (props: SideImageContainerProps) => {
             </div>
             <div className="col-sm-12 col-md-6">
                 <Paper className="mt-sm-3" elevation={0}>
-                    <img src={props.image} alt={props.alt} className="img-fluid user-select-none rounded"/>
+                    <img src={props.image} alt={props.alt} className="img-fluid user-select-none rounded"
+                         loading={"lazy"}/>
                 </Paper>
             </div>
         </div>

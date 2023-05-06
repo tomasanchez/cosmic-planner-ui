@@ -9,6 +9,7 @@ import {NavBar} from "../components/header/NavBar";
 import landingSVG from "../../assets/landing-demo.svg";
 import salesSVG from "../../assets/sales-promo.svg";
 import marketingSVG from "../../assets/marketing-promo.svg";
+import educationSVG from "../../assets/education-promo.svg"
 import TextBold from "../components/text/TextBold.tsx";
 import React, {useState} from "react";
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
@@ -20,6 +21,9 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import ScheduleSendIcon from '@mui/icons-material/ScheduleSend';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
+import TodayIcon from '@mui/icons-material/Today';
+import ArchitectureIcon from '@mui/icons-material/Architecture';
 import SideImageContainer from "../components/layout/SideImageContainer.tsx";
 import IconItem from "../components/layout/IconItem.tsx";
 
@@ -135,7 +139,7 @@ export const LandingPage = () => {
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <SideImageContainer image={marketingSVG} alt={"Marketing Promo"}>
-                            <div className="py-5 mt-5 mx-5">
+                            <div className="py-5 mt-3 mx-5">
                                 <IconItem title={"Optimize campaigns"} icon={<QueryStatsIcon/>}
                                           description={
                                               "Analyze which campaigns are driving the most meeting requests or" +
@@ -152,20 +156,21 @@ export const LandingPage = () => {
                         </SideImageContainer>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                        <SideImageContainer image={marketingSVG} alt={"Marketing Promo"}>
-                            <div className="py-5 mt-5 mx-5">
-                                <IconItem title={"Optimize campaigns"} icon={<QueryStatsIcon/>}
+                        <SideImageContainer image={educationSVG} alt={"Marketing Promo"}>
+                            <div className="py-5 mt-3 mx-5">
+                                <IconItem title={"Enhance student engagement"} icon={<Diversity3Icon/>}
                                           description={
-                                              "Analyze which campaigns are driving the most meeting requests or" +
-                                              " which channels are most effective for scheduling meetings"}/>
-                                <IconItem title={"Improve lead generation"} icon={<ScheduleSendIcon/>}
+                                              "Connect with students more effectively and build stronger" +
+                                              " relationships"}/>
+                                <IconItem title={"Increase accessibility"} icon={<TodayIcon/>}
                                           description={
-                                              "Growth and success with a streamlined scheduling process" +
-                                              " scheduling meetings"}/>
-                                <IconItem title={"Boost conversion rates"} icon={<TrendingUpIcon/>}
+                                              "Improve equity, connect with who may not be able to meet in person due" +
+                                              " to distance, scheduling conflicts, or other barriers. "}/>
+                                <IconItem title={"Personalize meetings"} icon={<ArchitectureIcon/>}
                                           description={
-                                              "Focus on building relationships with potential customers instead" +
-                                              " of dealing with scheduling logistics"}/>
+                                              "Tailor teaching strategies and better address any concerns or" +
+                                              " challenges that students may be facing  based on their individual" +
+                                              " needs and preferences"}/>
                             </div>
                         </SideImageContainer>
                     </TabPanel>
