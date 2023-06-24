@@ -3,6 +3,7 @@ import {AuthContext} from "../../../auth/AuthContext";
 import Button from "@mui/material/Button";
 import {Avatar, IconButton, Tooltip, Menu, MenuItem, Typography} from "@mui/material";
 import {deepPurple} from "@mui/material/colors";
+import {LOGIN_ROUTE} from "../../Routes.ts";
 
 export default function Profile() {
 
@@ -26,7 +27,7 @@ export default function Profile() {
     if (!authCtx.user) {
         return (
             <>
-                <Button>
+                <Button href={LOGIN_ROUTE} aria-label="Login">
                     Login
                 </Button>
             </>

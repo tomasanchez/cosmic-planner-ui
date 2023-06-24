@@ -11,7 +11,7 @@ export declare interface SideImageContainerProps {
 
 
 const SideImageContainer = (props: SideImageContainerProps) => {
-
+    
     return (
         <div className={"row align-items-center" + props.className}>
             <div className="col">
