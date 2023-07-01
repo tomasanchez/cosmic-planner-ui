@@ -9,10 +9,12 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography, {TypographyProps} from '@mui/material/Typography';
 import loginSVG from '../../assets/login.svg'
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {HOME_ROUTE} from "../Routes.ts";
 import {AuthContext} from "../../auth/AuthContext.tsx";
+import {Backdrop, CircularProgress} from "@mui/material";
+
 
 function Copyright(props: TypographyProps) {
     return (
@@ -27,11 +29,21 @@ function Copyright(props: TypographyProps) {
     );
 }
 
+interface InputState {
+    error: boolean,
+    helperText: string
+}
+
 const LoginPage = () => {
     const navigate = useNavigate();
 
     const {user, login} = useContext(AuthContext)
 
+    const neutralState: InputState = {error: false, helperText: ""};
+
+    const [loading, setLoading] = React.useState(false);
+    const [usernameInput, setUsernameInput] = useState<InputState>(neutralState);
+    const [passwordInput, setPasswordInput] = useState<InputState>(neutralState);
 
     if (user) {
         navigate(HOME_ROUTE);
@@ -42,24 +54,44 @@ const LoginPage = () => {
 
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        const formUsername = data.get('username');
-        const formPassword = data.get('password');
+        const formUsername = (data.get('username') as string | null);
+        const formPassword = (data.get('password') as string | null);
 
         if (formUsername === null || formPassword === null) {
             return;
         }
 
-        if (formPassword === "" || formUsername === "") {
+
+        if (formUsername.trim().length == 0) {
+            setUsernameInput({error: true, helperText: "Username cannot be empty"});
             return;
         }
+        setUsernameInput(neutralState);
 
-        login({username: (formUsername as string), password: (formPassword as string)});
 
+        if (formPassword.trim().length == 0) {
+            setPasswordInput({error: true, helperText: "Password cannot be empty"});
+            return;
+        }
+        setPasswordInput(neutralState);
+
+        setLoading(true);
+
+        setTimeout(() => {
+            setLoading(false);
+            login({username: (formUsername as string), password: (formPassword as string)});
+        }, 1000);
     };
 
     return (<>
 
             <main className="container">
+                <Backdrop
+                    sx={{color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1}}
+                    open={loading}
+                >
+                    <CircularProgress color="inherit"/>
+                </Backdrop>
                 <Grid container>
                     <Grid
                         sm={4}
@@ -95,6 +127,8 @@ const LoginPage = () => {
                                     label="Username"
                                     name="username"
                                     autoComplete="username"
+                                    error={usernameInput.error}
+                                    helperText={usernameInput.helperText}
                                     autoFocus
                                 />
                                 <TextField
@@ -106,6 +140,8 @@ const LoginPage = () => {
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
+                                    error={passwordInput.error}
+                                    helperText={passwordInput.helperText}
                                     inputProps={{min: 6}}
                                 />
                                 <FormControlLabel
