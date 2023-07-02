@@ -13,7 +13,8 @@ import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {HOME_ROUTE} from "../Routes.ts";
 import {AuthContext} from "../../auth/AuthContext.tsx";
-import {Backdrop, CircularProgress} from "@mui/material";
+import {Alert, Backdrop, CircularProgress, Collapse, IconButton} from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 
 
 function Copyright(props: TypographyProps) {
@@ -44,6 +45,7 @@ const LoginPage = () => {
     const [loading, setLoading] = React.useState(false);
     const [usernameInput, setUsernameInput] = useState<InputState>(neutralState);
     const [passwordInput, setPasswordInput] = useState<InputState>(neutralState);
+    const [error, setError] = useState(false);
 
     if (user) {
         navigate(HOME_ROUTE);
@@ -58,12 +60,14 @@ const LoginPage = () => {
         const formPassword = (data.get('password') as string | null);
 
         if (formUsername === null || formPassword === null) {
+            setError(true);
             return;
         }
 
 
         if (formUsername.trim().length == 0) {
             setUsernameInput({error: true, helperText: "Username cannot be empty"});
+            setError(true);
             return;
         }
         setUsernameInput(neutralState);
@@ -71,6 +75,7 @@ const LoginPage = () => {
 
         if (formPassword.trim().length == 0) {
             setPasswordInput({error: true, helperText: "Password cannot be empty"});
+            setError(true);
             return;
         }
         setPasswordInput(neutralState);
@@ -173,6 +178,28 @@ const LoginPage = () => {
                         </Box>
                     </Grid>
                 </Grid>
+                <div className="container">
+                    <Collapse in={error}>
+                        <Alert
+                            severity="error"
+                            action={
+                                <IconButton
+                                    aria-label="close"
+                                    color="inherit"
+                                    size="small"
+                                    onClick={() => {
+                                        setError(false);
+                                    }}
+                                >
+                                    <CloseIcon fontSize="inherit"/>
+                                </IconButton>
+                            }
+                            sx={{mb: 2}}
+                        >
+                            An error occurred while logging in. Please try again.
+                        </Alert>
+                    </Collapse>
+                </div>
             </main>
         </>
     )
